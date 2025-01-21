@@ -71,10 +71,9 @@ include('teacher_conn.php');
             <td><?php echo $rows['gender'];?></td>
             <td><?php echo $rows['shift'];?></td>
             <td><?php echo $rows['subject'];?></td>
-
-
+            <td><a href="editdata.php?editid=<?php echo $rows['id'];?>">Edit</a></td>         
+            <td><a href="deletedata.php?deleteid=<?php echo $rows['id'];?>">Delete</a></td>
             </tr>
-            
         <?php } ?>
         </table>
         
