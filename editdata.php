@@ -21,6 +21,7 @@ print_r($teacher_value);
         <form action="update.php" method="POST">
             <h4>Teacher Data Form</h4>
             <div class="teacher_name">
+                <input type="hidden" name="update_teacher_id" value="<?php echo $teacher_value['id']; ?>" >
                 <label>Name</label>
                 <input type="text" name="teacher_name" placeholder="Enter your name" value="<?php echo $teacher_value['name']; ?>" required>
 
@@ -47,11 +48,13 @@ print_r($teacher_value);
             </div>
             <div class="teacher_subject">
                 <label>Choose your subject</label>
-                <input type="checkbox" name="teacher_subject[]" value="Maths">Maths
-                <input type="checkbox" name="teacher_subject[]" value="Science">Science
-                <input type="checkbox" name="teacher_subject[]" value="Computer">Computer
-                <input type="checkbox" name="teacher_subject[]" value="History">History
-                <input type="checkbox" name="teacher_subject[]" value="Geography">Geography
+                <?php echo $teacher_value['subject'];
+                $subject_array=(explode(",", $teacher_value['subject'])); ?>
+                <input type="checkbox" name="teacher_subject[]" value="Maths" <?php if(in_array("Maths",$subject_array)){echo "checked";}?>>Maths
+                <input type="checkbox" name="teacher_subject[]" value="Science" <?php if(in_array("Science",$subject_array)){echo "checked";}?>>Science
+                <input type="checkbox" name="teacher_subject[]" value="Computer" <?php if(in_array("Computer",$subject_array)){echo "checked";}?>>Computer
+                <input type="checkbox" name="teacher_subject[]" value="History" <?php if(in_array("History",$subject_array)){echo "checked";}?>>History
+                <input type="checkbox" name="teacher_subject[]" value="Geography" <?php if(in_array("Geography",$subject_array)){echo "checked";}?>>Geography
 
             </div>
             <div class="button">
