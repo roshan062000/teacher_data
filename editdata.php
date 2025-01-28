@@ -57,6 +57,10 @@ print_r($teacher_value);
                 <input type="checkbox" name="teacher_subject[]" value="Geography" <?php if(in_array("Geography",$subject_array)){echo "checked";}?>>Geography
 
             </div>
+            <div class="file_upload">
+                <label>Upload your Pic</label>
+                <input type="file" name="teacher_picture" accept="image/jpeg">
+            </div>
             <div class="button">
                 <input type="submit">
             </div>

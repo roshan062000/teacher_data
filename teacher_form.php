@@ -5,7 +5,7 @@ include('teacher_conn.php');
     <head></head>
     <title>Teacher detail form</title>
     <body>
-        <form action="teacher_save.php" method="POST">
+        <form action="teacher_save.php" method="POST" enctype="multipart/form-data">
             <h4>Teacher Data Form</h4>
             <div class="teacher_name">
                 <label>Name</label>
@@ -41,6 +41,10 @@ include('teacher_conn.php');
                 <input type="checkbox" name="teacher_subject[]" value="Geography">Geography
 
             </div>
+            <div class="file_upload">
+                <label>Upload your Pic</label>
+                <input type="file" name="teacher_picture" accept="image/jpeg">
+            </div>
             <div class="button">
                 <input type="submit">
             </div>
@@ -56,7 +60,8 @@ include('teacher_conn.php');
                 <td>Gender</td>
                 <td>Shift</td>
                 <td>Subject</td>
-                
+                <td>Image</td>
+                <td>Actions</td>
             </th>
 
             <?php
@@ -71,8 +76,9 @@ include('teacher_conn.php');
             <td><?php echo $rows['gender'];?></td>
             <td><?php echo $rows['shift'];?></td>
             <td><?php echo $rows['subject'];?></td>
-            <td><a href="editdata.php?editid=<?php echo $rows['id'];?>">Edit</a></td>         
-            <td><a href="deletedata.php?deleteid=<?php echo $rows['id'];?>">Delete</a></td>
+            <td><img src="<?php  echo "uploads/".$rows['teacher_picture']  ?>" width="50" height="50"></td>
+            <td><a href="editdata.php?editid=<?php echo $rows['id'];?>">Edit</a>        
+            <a href="deletedata.php?deleteid=<?php echo $rows['id'];?>">Delete</a></td> 
             </tr>
         <?php } ?>
         </table>
