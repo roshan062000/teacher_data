@@ -18,7 +18,7 @@ print_r($teacher_value);
     <head></head>
     <title>Teacher detail form</title>
     <body>
-        <form action="update.php" method="POST">
+        <form action="update.php" method="POST" enctype="multipart/form-data">
             <h4>Teacher Data Form</h4>
             <div class="teacher_name">
                 <input type="hidden" name="update_teacher_id" value="<?php echo $teacher_value['id']; ?>" >
@@ -57,7 +57,11 @@ print_r($teacher_value);
                 <input type="checkbox" name="teacher_subject[]" value="Geography" <?php if(in_array("Geography",$subject_array)){echo "checked";}?>>Geography
 
             </div>
+            <div class="earlier-image">
+                <img src="<?php  echo "uploads/".$teacher_value['teacher_picture']  ?>" width="50" height="50">
+            </div>
             <div class="file_upload">
+                <input type="hidden" value="<?php echo $teacher_value['teacher_picture']; ?>" name="earlier_teacher_picture">
                 <label>Upload your Pic</label>
                 <input type="file" name="teacher_picture" accept="image/jpeg">
             </div>
